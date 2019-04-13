@@ -30,7 +30,16 @@
  *
  */
 function getFizzBuzz(num) {
-    throw new Error('Not implemented');
+    //throw new Error('Not implemented');
+if (num%3===0 && num%5===0){
+    return 'FizzBuzz';
+} else if (num%3===0){
+    return 'Fizz';
+} else if (num%5===0){
+    return 'Buzz';
+} else {
+    return num;
+}
 }
 
 
@@ -46,7 +55,8 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-    throw new Error('Not implemented');
+    //throw new Error('Not implemented');
+    return n ? n * getFactorial(n - 1) : 1;
 }
 
 
@@ -63,7 +73,8 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-    throw new Error('Not implemented');
+    //throw new Error('Not implemented');
+    return ((n2-n1)+1) * (n2 + n1) / 2;
 }
 
 
@@ -82,7 +93,12 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a,b,c) {
-    throw new Error('Not implemented');
+    //throw new Error('Not implemented');
+    let sides = [a, b, c];
+    let max = Math.max(...sides);
+    let sum = sides.reduce((a, b) => a + b, 0);
+    return sum - max > max;
+    
 }
 
 
@@ -119,7 +135,12 @@ function isTriangle(a,b,c) {
  *  
  */
 function doRectanglesOverlap(rect1, rect2) {
-    throw new Error('Not implemented');
+    //throw new Error('Not implemented');
+    return !(rect2.left > rect1.left+rect1.width || 
+        rect2.left+rect2.width < rect1.left || 
+        rect2.top > rect1.top+rect1.height ||
+        rect2.top+rect2.height< rect1.top);
+
 }
 
 
@@ -150,7 +171,19 @@ function doRectanglesOverlap(rect1, rect2) {
  *   
  */
 function isInsideCircle(circle, point) {
-    throw new Error('Not implemented');
+   //throw new Error('Not implemented');
+   //(x-center_x)^2 + (y - center_y)^2 < radius^2
+   
+   let a=point.x;
+   let b=point.y;
+   let center=circle.center;
+   let centerX=center.x;
+   let centerY=center.y;
+   let temp=Math.pow((a-centerX),2)+Math.pow((b-centerY),2);
+   let temp2=Math.pow(circle.radius,2);
+      if (temp<temp2){
+       return true;
+   } else { return false;}
 }
 
 
@@ -166,7 +199,14 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-    throw new Error('Not implemented');
+    //throw new Error('Not implemented');
+    for (let i = 0; i < str.length; i++) {
+        let c = str.charAt(i);
+        if (str.indexOf(c) == i && str.indexOf(c, i + 1) == -1) {
+          return c;
+        }
+      }
+      return null;
 }
 
 
@@ -192,7 +232,15 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-    throw new Error('Not implemented');
+    //throw new Error('Not implemented');
+    let result=[a,b].sort((a,b)=>a-b);
+    let open="";
+    let close="";
+    (isStartIncluded)?open="[":open="(";
+    (isEndIncluded)?close="]" : close=")";
+
+    return `${open}${result[0]}, ${result[1]}${close}`
+
 }
 
 
@@ -209,7 +257,8 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-    throw new Error('Not implemented');
+    //throw new Error('Not implemented');
+    return str.split("").reverse().join("");
 }
 
 
@@ -226,7 +275,8 @@ function reverseString(str) {
  *   34143 => 34143
  */
 function reverseInteger(num) {
-    throw new Error('Not implemented');
+    //throw new Error('Not implemented');
+    return (""+num).split("").reverse().join("");
 }
 
 
@@ -252,6 +302,7 @@ function reverseInteger(num) {
  */
 function isCreditCardNumber(ccn) {
     throw new Error('Not implemented');
+
 }
 
 
@@ -270,7 +321,15 @@ function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 function getDigitalRoot(num) {
-    throw new Error('Not implemented');
+    //throw new Error('Not implemented');
+    if (num / 10 < 1){return num;}
+    let arr=(""+num).split("").map(Number);
+  
+    num = arr.reduce(function(sum, current) {
+    return sum + current;
+  }, 0);
+  
+    return getDigitalRoot(num);
 }
 
 
