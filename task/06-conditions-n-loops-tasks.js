@@ -428,6 +428,7 @@ function isBracketsBalanced(str) {
  */
 function timespanToHumanString(startDate, endDate) {
     throw new Error('Not implemented');
+
 }
 
 
@@ -470,6 +471,19 @@ function toNaryString(num, n) {
  */
 function getCommonDirectoryPath(pathes) {
     throw new Error('Not implemented');
+    // const splitStrings = (a, sep = '/') => a.map(i => i.split(sep));
+ 
+    // const elAt = i => a => a[i];
+     
+    // const rotate = a => a[0].map((e, i) => a.map(elAt(i)));
+     
+    // const allElementsEqual = arr => arr.every(e => e === arr[0]);
+     
+     
+    // const commonPath = (input, sep = '/') => rotate(splitStrings(input, sep))
+    //     .filter(allElementsEqual).map(elAt(0)).join(sep);
+
+    //     return commonPath(pathes);
 }
 
 
