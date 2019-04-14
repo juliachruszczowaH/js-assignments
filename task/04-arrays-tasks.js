@@ -572,7 +572,21 @@ function distinct(arr) {
  *   }
  */
 function group(array, keySelector, valueSelector) {
-   throw new Error('Not implemented');
+   //throw new Error('Not implemented');
+   let keysStore=array.map(keySelector);
+   let valuesStore=array.map(valueSelector);
+   let resultGroup=new Map();
+   keysStore.filter((element,i)=>{
+      if(!resultGroup.has(element)){
+         resultGroup.set(element,[valuesStore[i]]);
+      } else {
+         let value=resultGroup.get(element);
+         value.push(valuesStore[i]);
+         resultGroup.set(element,value);
+      }
+   });
+   return resultGroup;
+
 }
 
 
