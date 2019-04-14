@@ -177,10 +177,12 @@ function logger(func, logFunc) {
  *   partialUsingArguments(fn, 'a','b','c')('d') => 'abcd'
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
-function partialUsingArguments(fn,...rest) {
+function partialUsingArguments(fn) {
     //throw new Error('Not implemented');
+    const arr = [...arguments]
+    arr.shift();
     return function composition(...restOfRest) {
-        return fn(...rest,...restOfRest);
+        return fn(...arr,...restOfRest);
       };
 }
 
