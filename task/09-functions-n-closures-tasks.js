@@ -179,11 +179,10 @@ function logger(func, logFunc) {
  */
 function partialUsingArguments(fn) {
     //throw new Error('Not implemented');
-    const arr = [...arguments]
-    arr.shift();
-    return function composition(...restOfRest) {
-        return fn(...arr,...restOfRest);
-      };
+    const args=Array.from(arguments).slice(1);
+    return function(){
+        return fn.apply(null,args.concat(Array.from(arguments)));
+    }; 
 }
 
 
