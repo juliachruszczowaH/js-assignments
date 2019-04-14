@@ -57,16 +57,9 @@ function* get99BottlesOfBeer() {
  * @return {Iterable.<number>}
  *
  */
-function* getFibonacciSequence(n = null, current = 0, next = 1) {
-    //throw new Error('Not implemented');
-    if (n === 0) {
-        return current;
-      }
-    
-      let m = n !== null ? n - 1 : null;
-    
-      yield current;
-      yield *getFibonacciSequence(m, next, current + next);
+function* getFibonacciSequence() {
+    throw new Error('Not implemented');
+
 
 }
 
