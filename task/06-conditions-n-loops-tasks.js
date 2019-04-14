@@ -381,9 +381,9 @@ function isBracketsBalanced(str) {
     } else {
         for (let n = 0; n < stringLength; n++) {
             let char = str[n];
-            if (openBrackets.includes(char)) {
+            if (openBrackets.indexOf(char) != -1){
                 storage.push(char);
-            } else if (storage.length != 0 && closeBrackets.includes(char)) {
+            } else if (storage.length != 0 && closeBrackets.indexOf(char) != -1) {
                 let indexClosed = closeBrackets.indexOf(char);
                 let lastStorageChar = storage.pop();
                 let indexOpened = openBrackets.indexOf(lastStorageChar);
@@ -495,8 +495,7 @@ function getMatrixProduct(m1, m2) {
     //throw new Error('Not implemented');
     let m1rows = m1.length;
     let m1cols = m1[0].length;
-    let m2rows = m2.length;
-     let m2cols = m2[0].length;
+    let m2cols = m2[0].length;
     let m = new Array(m1rows);  
 for (let a = 0; a < m1rows; ++a) {
   m[a] = new Array(m2cols); 

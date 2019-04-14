@@ -81,11 +81,11 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
 function timeSpanToString(startDate, endDate) {
-   throw new Error('Not implemented');
-   let diff= endDate.getMilliseconds() - startDate.getMilliseconds();
-   console.log(diff);
-   
-   return `${diff.getUTCHours()}:${diff.getMinutes()}:${diff.getSeconds()}.${diff.getMilliseconds()}`;
+   //throw new Error('Not implemented');
+   let difference= endDate- startDate;
+   let span=new Date(difference).toISOString();
+   return span.slice(11,-1);
+
 }
 
 

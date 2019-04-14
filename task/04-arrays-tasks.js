@@ -465,18 +465,17 @@ function toStringList(arr) {
    */
 
 function sortCitiesArray(arr) {
-   throw new Error('Not implemented');
-   // let res = arr.sort(function(a, b){
-   //    if (a.city < b.city) return -1;
-   //    if (a.city > b.city) return 1;
-   //    return 0;
-   // })
-   // let res2 = res.sort(function(a, b){
-   //    if (a.country < b.country) return -1;
-   //    if (a.country > b.country) return 1;
-   //    return 0;
-   // })
-   // return res2;
+   //throw new Error('Not implemented');
+  return arr
+   .sort(function(a, b){
+      if (a.country < b.country) return -1;
+      if (a.country > b.country) return 1;
+       
+      if (a.city < b.city) return -1;
+      if (a.city > b.city) return 1;
+      return 0;
+   })
+   
 }
 
 /**
@@ -589,9 +588,10 @@ function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-   throw new Error('Not implemented');
-   //return arr.map(childrenSelector.apply);
-
+   //throw new Error('Not implemented');
+   let storage=[];
+   arr.map(e=>storage.push(...childrenSelector(e)));
+   return  storage;
 }
 
 
@@ -608,7 +608,8 @@ function selectMany(arr, childrenSelector) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 function getElementByIndexes(arr, indexes) {
-   throw new Error('Not implemented');
+   //throw new Error('Not implemented');
+   return indexes.reduce((result,current)=>result[current],arr);
 }
 
 
@@ -631,7 +632,25 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
-   throw new Error('Not implemented');
+   //throw new Error('Not implemented');
+   let copyArr=arr;
+   if(arr.length===0 ||arr.length===1){
+       return copyArr;
+      } else if (arr.length===2){
+         return copyArr.reverse();
+      } else {
+   let slicePoint=Math.floor(arr.length/2);
+   let tail=[];
+   let head=[];
+   head=arr.slice(0,slicePoint);
+   if (arr.length%2===0){
+      tail=arr.slice(slicePoint);
+   } else {
+      tail=arr.slice(slicePoint+1);
+      tail.push(arr[slicePoint]);
+   }
+  return tail.concat(head);
+      }
 }
 
 
