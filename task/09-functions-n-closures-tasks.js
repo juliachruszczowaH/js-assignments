@@ -72,9 +72,9 @@ function getPowerFunction(exponent) {
  *   getPolynom(8)     => y = 8
  *   getPolynom()      => null
  */
-function getPolynom(...args) {
+function getPolynom() {
     //throw new Error('Not implemented');
-    
+    const args=[...arguments]
     return function(x) {
         let highestPow = args.length - 1;
         let index = 0;
